@@ -1,13 +1,18 @@
 :: This batch file is for enumeration
 :: and saves the output to a .txt file
-ECHO OFF
+ECHO On
 :: This lists local users
-net users >> results.txt
+net users 
+@set /p DUMMY=Hit ENTER to continue...
 :: This lists domain users
-net group "Domain Users" /domain >> results.txt
+net group "Domain Users" /domain 
+@set /p DUMMY=Hit ENTER to continue...
 :: This identifies your domain
-wmic computersystem get domain >> results.txt
+wmic computersystem get domain 
+@set /p DUMMY=Hit ENTER to continue...
 :: Enumerate domain users
-net accounts /domain >> results.txt
+net accounts /domain 
 :: Enumerate domain computers
-net view >> results.txt
+net view 
+@set /p DUMMY=Hit ENTER to continue...
+@echo "YOU ARE NOW ENUMERATED"
